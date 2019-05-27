@@ -1,0 +1,47 @@
+/* ConfigEditorComponent's private CSS styles */
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  display: block;
+  width: 100%;
+  color: #607D8B;
+  font-weight: bold;
+  margin-top: 0.4rem;
+}
+
+input {
+  height: 1.2em!important;
+  font-size: 1em;
+  padding-left: .4em;
+  margin-bottom: 3px!important;
+}
+
+button {
+  font-family: Arial;
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #cfd8dc;
+}
+
+button:disabled {
+  background-color: #eee;
+  color: #ccc;
+  cursor: auto;
+}
+
+span {
+  font-size: 10px;
+}
+
+select {
+  display: block;
+}

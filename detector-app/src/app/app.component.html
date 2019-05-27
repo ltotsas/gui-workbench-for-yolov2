@@ -1,0 +1,25 @@
+<div class="page">
+  <div class="page-header">
+    <app-layout-header></app-layout-header>
+  </div>
+  <div class="page-content">
+    <div class="row"
+         style="box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12)">
+      <nav>
+        <ul>
+          <li><b>Project selection: </b></li>
+          <li>
+            <app-project></app-project>
+          </li>
+          <li><b>Current project: </b></li>
+          <li>{{currentProject}}</li>
+          <li *ngIf="!currentProject">None</li>
+        </ul>
+      </nav>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+  <div class="page-footer">
+    <app-layout-footer></app-layout-footer>
+  </div>
+</div>

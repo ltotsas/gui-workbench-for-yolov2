@@ -1,0 +1,46 @@
+<mat-grid-list cols="10" rowHeight="600px" *ngIf="imageName!='empty'">
+  <mat-grid-tile
+    colspan="8"
+    rowspan="1">
+    <img #img style='height: 100%; width: 100%; object-fit: contain' (load)="initAnnotation(img)" src="{{url+imageName}}">
+  </mat-grid-tile>
+  <mat-grid-tile
+    [colspan]="2">
+    <mat-list class="full-width-height">
+      <div class="card">
+        <span class="card-title">List of classes</span>
+        <div *ngIf="classes.length > 0" class="card-content list-of-classes">
+          <mat-list-item *ngFor="let class of classes">
+            <input matInput type="text" readonly="true" #delclass value={{class}} placeholder="Add new class">
+            <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)='deleteClass(delclass)'
+                    value="newClass">
+              <i class="material-icons">clear</i>
+            </button>
+          </mat-list-item>
+        </div>
+        <div class="card-action">
+          <mat-list-item>
+            <input matInput type="text" #newClass placeholder="Add new class">
+            <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)='addClass(newClass)' value="newClass">
+              <i class="material-icons">check</i>
+            </button>
+          </mat-list-item>
+        </div>
+      </div>
+      <div class="card">
+        <span class="card-title">Select annotation class</span>
+        <div class="card-content">
+          <mat-select placeholder="Classes" (selectionChange)="onClassSelection($event)">
+            <mat-option *ngFor="let class of classes" [value]="class">
+              {{class}}
+            </mat-option>
+          </mat-select>
+        </div>
+        <div class="card-action">
+          <button [disabled]="annotationClass === ''" mat-raised-button (click)="annotate()">Annotate</button>
+        </div>
+      </div>
+    </mat-list>
+  </mat-grid-tile>
+</mat-grid-list>
+

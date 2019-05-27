@@ -1,0 +1,9 @@
+<!-- Page Content goes here -->
+<div class="row" style="margin-bottom: 0">
+  <div class="col s2">
+    <app-config-editor *ngIf="currentProject"></app-config-editor>
+  </div>
+  <div class="col s10">
+    <iframe *ngIf="!isRefreshing && currentProject" style="height: 620px; width: 100%;" src="http://localhost:6006" name="TB"></iframe>
+  </div>
+</div>

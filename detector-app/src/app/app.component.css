@@ -1,0 +1,24 @@
+nav {
+  background-color: #fff;
+  text-align: center;
+  height: auto!important;
+  line-height: auto!important;
+}
+
+ul {
+  overflow: hidden;
+  display: inline-block;
+  padding: 0;
+  margin: 0 auto;
+  list-style-type: none;
+  vertical-align: middle;
+}
+
+li {
+  float: left;
+  display: block;
+  padding: 1px 10px;
+  margin: 0;
+  vertical-align: middle;
+  color: #000000;
+}

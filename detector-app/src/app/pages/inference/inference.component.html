@@ -1,0 +1,35 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h3>
+    Please select an image for inference based on the selected project
+  </h3>
+</div>
+<div>
+  <h4>The best model is being automated selected</h4>
+  <button mat-raised-button (click)="openInput()">Select an image</button>
+  <input
+    #imageInput
+    id="imageInput"
+    type="file"
+    (change)="imagePicked(imageInput.files)"
+    accept="image/*"
+    hidden>
+</div>
+<div *ngFor="let image of items">
+  <div class="image">
+    <img #img [src]="image.imageData" (load)="initAnnotation(img)" style="max-height: 450px"/>
+  </div>
+  <div class="footer">
+    <h5>{{ image.className }}</h5>
+    <div *ngIf="image.annotations !== []">
+      <div *ngFor="let prediction of image.annotations">
+        <h5>{{ prediction.className }}</h5>
+        <h5>{{ prediction.accuracy }}</h5>
+        <h5>{{ prediction.xmin }}</h5>
+        <h5>{{ prediction.ymin}}</h5>
+        <h5>{{ prediction.xmax }}</h5>
+        <h5>{{ prediction.ymax }}</h5>
+      </div>
+    </div>
+  </div>
+</div>

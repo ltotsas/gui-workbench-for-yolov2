@@ -1,0 +1,37 @@
+<div class="container" fxLayout="column" fxLayoutAlign="space-evenly stretch">
+  <h1 mat-dialog-title>Select existing project or create new</h1>
+  <h2 mat-dialog-title *ngIf="currentProject">Current project : {{currentProject}}</h2>
+  <!-- This is the content of the dialog, containing a list of the files to upload -->
+  <mat-dialog-content>
+    <mat-list class="full-width-height">
+      <div class="card">
+        <span class="card-title">Create a new project</span>
+        <div class="card-action">
+          <mat-list-item>
+            <input matInput type="text" #newProject placeholder="Project name">
+            <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)='createProject(newProject)'
+                    value="newClass">
+              <i class="material-icons">check</i>
+            </button>
+          </mat-list-item>
+        </div>
+      </div>
+      <div class="card">
+        <span class="card-title">Select project</span>
+        <div class="card-content">
+          <mat-select placeholder="Projects" (selectionChange)="onProjectSelection($event)">
+            <mat-option *ngFor="let project of projects" [value]="project">
+              {{project}}
+            </mat-option>
+          </mat-select>
+        </div>
+      </div>
+    </mat-list>
+  </mat-dialog-content>
+
+  <!-- This are the actions of the dialog, containing the primary and the cancel button-->
+  <mat-dialog-actions class="actions">
+    <button mat-button mat-dialog-close (click)="closeDialog()">Cancel</button>
+    <button mat-raised-button color="primary" (click)="closeDialog()">Confirm</button>
+  </mat-dialog-actions>
+</div>

@@ -1,0 +1,8 @@
+<div class="scroll-container">
+  <mat-grid-list cols="2" rowHeight="2:1">
+    <mat-grid-tile *ngFor="let img of images">
+      <img style="width: 100%;height: auto;"  (click)="newImage(img.filename)" src={{url+img.filename}}>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+

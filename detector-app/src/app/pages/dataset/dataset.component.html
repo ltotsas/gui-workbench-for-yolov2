@@ -1,0 +1,12 @@
+<!-- Page Content goes here -->
+<div class="row" style="margin-bottom: 0">
+  <div class="col s2">
+    <div class="margin-top-down">
+      <app-upload *ngIf="currentProject"></app-upload>
+    </div>
+    <app-images *ngIf="currentProject"></app-images>
+  </div>
+  <div class="col s10">
+    <app-image-annotation *ngIf="currentProject"></app-image-annotation>
+  </div>
+</div>

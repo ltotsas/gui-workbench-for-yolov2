@@ -1,0 +1,45 @@
+<form [formGroup]="configForm" (ngSubmit)="onSubmit()">
+  <label>
+    Training Times:
+    <input type="number" formControlName="training_times" required>
+  </label>
+  <span>the number of times to cycle through the training set, useful for small datasets</span>
+  <label>
+    Batch Size:
+    <input type="number" formControlName="batch">
+  </label>
+  <span>the number of images to read in each batch</span>
+  <label>
+    Learning Rate:
+    <input type="number" formControlName="learn_rate">
+  </label>
+  <span>the base learning rate of the default Adam rate scheduler</span>
+  <label>
+    Number of Epochs:
+    <input type="number" formControlName="epochs">
+  </label>
+  <span>number of epoches</span>
+  <label>
+    Warmup Epochs:
+    <input type="number" formControlName="warmup">
+  </label>
+  <span>the number of initial epochs during which the sizes of the 5 boxes in each cell is forced to match the sizes of the 5 anchors</span>
+  <label>
+    Weights:
+    <select formControlName="weights">
+      <option value="">---Please select---</option> <!-- not selected / blank option -->
+      <option value="init">Start Clean</option> <!-- interpolation -->
+      <option value="best">Previous Highest mAP</option>
+    </select>
+  </label>
+  <label>
+    Model Name:
+    <input type="text" formControlName="model">
+  </label>
+  <br>
+  <button type="submit" [disabled]="!configForm.valid">Submit</button>
+  <!--<button [disabled]="!configUpdated" (click)="prepareDataset()">Prepare</button>-->
+  <button *ngIf="!trainingService.trainingStarted" [disabled]="!datasetReady" (click)="startTraining()">Start</button>
+  <button *ngIf="trainingService.trainingStarted" (click)="stopTraining()">Stop</button>
+
+</form>
