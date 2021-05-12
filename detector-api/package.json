@@ -48,7 +48,7 @@
     "express": "^4.16.3",
     "express-dynamic-static": "^1.0.5",
     "formidable": "^1.2.1",
-    "grpc": "^1.12.4",
+    "grpc": "^1.24.9",
     "http-status": "^1.2.0",
     "inversify": "^4.13.0",
     "inversify-express-utils": "^6.1.0",
